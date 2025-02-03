@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+  import PokemonByType from "$features/search/components/PokemonByType.svelte";
+  import SearchBar from "$features/search/components/SearchBar.svelte";
+</script>
+
+<section class="section">
+  <SearchBar />
+  <PokemonByType />
+</section>
