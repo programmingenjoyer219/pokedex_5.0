@@ -36,8 +36,6 @@
   }
 
   .theme-toggle-button {
-    cursor: pointer;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,14 +43,7 @@
     padding: 0.5rem;
 
     border-radius: 50%;
-    border: none;
 
     background-color: var(--primary-color);
-
-    transition: opacity 150ms;
-
-    &:hover {
-      opacity: 0.8;
-    }
   }
 </style>

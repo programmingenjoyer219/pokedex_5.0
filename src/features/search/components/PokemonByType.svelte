@@ -56,9 +56,6 @@
   }
 
   .pokemon-type-button {
-    border: none;
-    border-radius: 0.25rem;
-
     flex-shrink: 0;
 
     display: flex;
@@ -69,19 +66,10 @@
     height: 3.5rem;
     width: 3.5rem;
 
-    cursor: pointer;
-
-    transition:
-      opacity 150ms,
-      transform 150ms;
+    transition: transform 150ms;
 
     &:hover {
-      opacity: 0.8;
       transform: scale(110%);
-    }
-
-    &:active {
-      opacity: 0.5;
     }
   }
 </style>

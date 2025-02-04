@@ -41,6 +41,9 @@
 
   /* font */
   --base-font: "Space Grotesk", serif;
+
+  /* border radius */
+  --border-rounded: 0.25rem;
 }
 
 ::-webkit-scrollbar {
@@ -124,6 +127,23 @@ p {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+button {
+  cursor: pointer;
+
+  border: none;
+  border-radius: var(--border-rounded);
+
+  transition: opacity 150ms;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
 }
 
 .section {
