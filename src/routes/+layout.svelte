@@ -24,8 +24,8 @@
       <img
         src="/pokemon-logo.png"
         alt="Pokedex version 5.0"
-        height="84"
-        width="200"
+        height="63"
+        width="150"
       />
     </a>
     <ThemeSwitch />
@@ -60,5 +60,12 @@
 
   .theme-toggle-button {
     justify-self: flex-end;
+  }
+
+  @media (min-width: 600px) {
+    .logo img {
+      width: 200px;
+      height: 84px;
+    }
   }
 </style>

@@ -27,7 +27,7 @@
     <span class="sr-only">Go to previous page</span>
     {@render leftArrowIcon()}
   </button>
-  <p class="h5">Page 1 of 13</p>
+  <p class="page-number">Page 1 of 13</p>
   <button title="next page" class="pagination-button">
     <span class="sr-only">Go to next page</span>
     {@render rightArrowIcon()}
@@ -55,5 +55,25 @@
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
+  }
+
+  .page-number {
+    font-size: var(--h5);
+  }
+
+  @media (min-width: 600px) {
+    .left-arrow-icon,
+    .right-arrow-icon {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+
+    .pagination-button {
+      padding: 0.75rem;
+    }
+
+    .page-number {
+      font-size: var(--h4);
+    }
   }
 </style>

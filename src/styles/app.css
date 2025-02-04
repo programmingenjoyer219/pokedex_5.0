@@ -147,5 +147,11 @@ button {
 }
 
 .section {
-  margin-block: 2rem;
+  margin-block: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .section {
+    margin-block: 2rem;
+  }
 }

@@ -33,8 +33,8 @@
         <img
           src="/pokemon-types/{pokemon_type.toLowerCase()}.svg"
           alt={pokemon_type}
-          height="36"
-          width="36"
+          height="28"
+          width="28"
         />
       </button>
     </li>
@@ -43,14 +43,14 @@
 
 <style>
   .pokemon-type-buttons-wrapper {
-    padding: 1rem;
+    padding: 0.75rem;
 
     display: flex;
     align-items: center;
     gap: 1rem;
 
     border: 2px solid var(--primary-color);
-    border-radius: 0.25rem;
+    border-radius: var(--border-rounded);
 
     overflow-x: scroll;
   }
@@ -62,14 +62,31 @@
     align-items: center;
     justify-content: center;
 
-    padding: 0.5rem;
-    height: 3.5rem;
-    width: 3.5rem;
+    padding: 0.15rem;
+    height: 3rem;
+    width: 3rem;
 
     transition: transform 150ms;
 
     &:hover {
       transform: scale(110%);
+    }
+  }
+
+  @media (min-width: 600px) {
+    .pokemon-type-buttons-wrapper {
+      padding: 1rem;
+    }
+
+    .pokemon-type-button {
+      padding: 0.5rem;
+      height: 3.5rem;
+      width: 3.5rem;
+
+      img {
+        height: 2.25rem;
+        width: 2.25rem;
+      }
     }
   }
 </style>
