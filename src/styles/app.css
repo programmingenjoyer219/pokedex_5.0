@@ -84,6 +84,10 @@ img {
   max-width: 100%;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 .h1 {
   font-size: var(--h1);

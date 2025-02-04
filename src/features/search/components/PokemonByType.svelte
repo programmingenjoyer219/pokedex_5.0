@@ -1,29 +1,10 @@
 <script>
-  var pokemon_types = [
-    "Bug",
-    "Dark",
-    "Dragon",
-    "Electric",
-    "Fairy",
-    "Fighting",
-    "Fire",
-    "Flying",
-    "Ghost",
-    "Grass",
-    "Ground",
-    "Ice",
-    "Normal",
-    "Poison",
-    "Psychic",
-    "Rock",
-    "Steel",
-    "Water",
-  ];
+  import { POKEMON_TYPES } from "$lib/pokemonTypes";
 </script>
 
 <p class="sr-only">Search pokémon by type</p>
 <ul class="pokemon-type-buttons-wrapper">
-  {#each pokemon_types as pokemon_type}
+  {#each POKEMON_TYPES as pokemon_type}
     <li>
       <button
         class="pokemon-type-button"
