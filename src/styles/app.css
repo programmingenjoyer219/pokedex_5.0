@@ -81,6 +81,7 @@ body {
   background-size: 10px 10px;
 
   font-family: var(--base-font);
+  line-height: 1.25;
 }
 
 img {
