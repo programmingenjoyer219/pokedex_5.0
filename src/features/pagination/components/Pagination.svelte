@@ -1,3 +1,7 @@
+<script>
+  var { currentPageNumber, numberOfPages } = $props();
+</script>
+
 {#snippet leftArrowIcon()}
   <svg
     class="left-arrow-icon"
@@ -23,15 +27,25 @@
 {/snippet}
 
 <section class="section pagination">
-  <button title="previous page" class="pagination-button">
+  <a
+    href="#page-{currentPageNumber - 1}"
+    title="previous page"
+    class="button pagination-button"
+    class:button-disabled={currentPageNumber == 1}
+  >
     <span class="sr-only">Go to previous page</span>
     {@render leftArrowIcon()}
-  </button>
-  <p class="page-number">Page 1 of 13</p>
-  <button title="next page" class="pagination-button">
+  </a>
+  <p class="page-number">Page {currentPageNumber} of {numberOfPages}</p>
+  <a
+    href="#page-{currentPageNumber + 1}"
+    title="next page"
+    class="button pagination-button"
+    class:button-disabled={currentPageNumber == numberOfPages}
+  >
     <span class="sr-only">Go to next page</span>
     {@render rightArrowIcon()}
-  </button>
+  </a>
 </section>
 
 <style>
@@ -59,6 +73,10 @@
 
   .page-number {
     font-size: var(--h5);
+  }
+
+  .button-disabled {
+    visibility: hidden;
   }
 
   @media (min-width: 600px) {

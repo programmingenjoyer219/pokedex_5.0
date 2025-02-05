@@ -71,6 +71,10 @@
   outline: 2px solid var(--primary-color-light);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg-color);
   background-image: var(--bg-image);
@@ -133,7 +137,8 @@ p {
   border-width: 0;
 }
 
-button {
+button,
+.button {
   cursor: pointer;
 
   border: none;
