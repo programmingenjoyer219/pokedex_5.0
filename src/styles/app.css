@@ -65,6 +65,14 @@
     hsl(214, 92%, 38%) 0.5px,
     hsl(217, 100%, 3%) 0.5px
   );
+
+  .search-input,
+  .page-number,
+  .profile-stat,
+  .pokemon-info,
+  .stat-wrapper {
+    color: white;
+  }
 }
 
 *:focus {
