@@ -8,6 +8,7 @@
 
 {#snippet notFoundIcon()}
   <svg
+    aria-hidden="true"
     class="not-found-icon"
     height="200"
     width="200"

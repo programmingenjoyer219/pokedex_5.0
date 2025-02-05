@@ -4,6 +4,7 @@
 
 {#snippet leftArrowIcon()}
   <svg
+    aria-hidden="true"
     class="left-arrow-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -16,6 +17,7 @@
 
 {#snippet rightArrowIcon()}
   <svg
+    aria-hidden="true"
     class="right-arrow-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
