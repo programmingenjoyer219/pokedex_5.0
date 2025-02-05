@@ -9,7 +9,7 @@
     style:background-color="var(--{pokemonType})"
     height={28}
     width={28}
-    alt={pokemonType}
+    alt=""
   />
   <span class="pokemon-type-name text-shadow">
     {pokemonType}

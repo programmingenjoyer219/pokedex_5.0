@@ -4,6 +4,7 @@
 
 {#snippet heightIcon()}
   <svg
+    aria-hidden="true"
     class="height-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -16,6 +17,7 @@
 
 {#snippet weightIcon()}
   <svg
+    aria-hidden="true"
     class="weight-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -26,15 +28,17 @@
   >
 {/snippet}
 
-<div class="pokemon-profile flex items-center justify-center gap-4 mt-2">
+<div class="pokemon-profile">
   <div class="profile-stat">
     {@render heightIcon()}
-    <span class="font-semibold text-lg">{height}</span>
+    <span class="sr-only">height</span>
+    <span>{height}</span>
   </div>
 
   <div class="profile-stat">
     {@render weightIcon()}
-    <span class="font-semibold text-lg">{weight}</span>
+    <span class="sr-only">weight</span>
+    <span>{weight}</span>
   </div>
 </div>
 
@@ -46,13 +50,7 @@
   }
 
   .pokemon-profile {
-    color: black;
-    font-weight: 600;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    display: none;
   }
 
   .profile-stat {
@@ -60,5 +58,17 @@
     align-items: center;
     justify-content: center;
     gap: 0.25rem;
+  }
+
+  @media (min-width: 600px) {
+    .pokemon-profile {
+      color: black;
+      font-weight: 600;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
   }
 </style>

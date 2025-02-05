@@ -1,4 +1,5 @@
 <script>
+  import { MediaQuery } from "svelte/reactivity";
   import PokemonProfileSlot from "./PokemonProfileSlot.svelte";
   import PokemonTypeSlot from "./PokemonTypeSlot.svelte";
 
@@ -8,10 +9,40 @@
     name: { english: english_name },
     type: pokemon_types,
     profile: { height, weight },
+    description,
   } = pokemon;
+
+  /*
+  <!-- card design for screen-width >= 600px -->
+  <a
+    href="/pokemon/{id}"
+    style:border="2px solid var(--{pokemon_types[0]})"
+    class="pokemon-card pokemon-card-big"
+  >
+    <img
+      loading="lazy"
+      src="/images/{id}.png"
+      alt="{english_name}. {description}"
+      class="rounded-md"
+      height="160"
+      width="160"
+    />
+    <p class="pokemon-card-name">{english_name}</p>
+    <ul
+      class="pokemon-type-wrapper"
+      aria-label="{english_name} belongs to the type:"
+    >
+      {#each pokemon_types as pokemon_type, index (index)}
+        <li>
+          <PokemonTypeSlot pokemonType={pokemon_type} />
+        </li>
+      {/each}
+    </ul>
+    <PokemonProfileSlot {height} {weight} />
+  </a>
+  */
 </script>
 
-<!-- card design for screen-width <= 600px -->
 <a
   href="/pokemon/{id}"
   class="pokemon-card pokemon-card-small"
@@ -20,35 +51,27 @@
   <img
     loading="lazy"
     src="/images/{id}.png"
-    alt={english_name}
-    class="rounded-md size-20"
+    alt="{english_name}. {description}"
+    height="80"
+    width="80"
+    class="pokemon-image"
   />
-  <span
+  <p
     class="pokemon-card-name text-shadow"
-    style:background-color="var(--{pokemon_types[0]})">{english_name}</span
+    style:background-color="var(--{pokemon_types[0]})"
   >
-</a>
-
-<!-- card design for screen-width >= 600px -->
-<a
-  href="/pokemon/{id}"
-  style:border="2px solid var(--{pokemon_types[0]})"
-  class="pokemon-card pokemon-card-big"
->
-  <img
-    loading="lazy"
-    src="/images/{id}.png"
-    alt={english_name}
-    class="rounded-md"
-    height="160"
-    width="160"
-  />
-  <span class="pokemon-card-name">{english_name}</span>
-  <div class="pokemon-type-wrapper">
+    {english_name}
+  </p>
+  <ul
+    class="pokemon-type-wrapper"
+    aria-label="{english_name} belongs to the type:"
+  >
     {#each pokemon_types as pokemon_type, index (index)}
-      <PokemonTypeSlot pokemonType={pokemon_type} />
+      <li>
+        <PokemonTypeSlot pokemonType={pokemon_type} />
+      </li>
     {/each}
-  </div>
+  </ul>
   <PokemonProfileSlot {height} {weight} />
 </a>
 
@@ -77,11 +100,7 @@
     }
   }
 
-  .pokemon-card-big {
-    display: none;
-  }
-
-  .pokemon-card-small .pokemon-card-name {
+  .pokemon-card-name {
     padding: 0.25rem;
     border-radius: var(--border-rounded);
     font-weight: 600;
@@ -89,26 +108,26 @@
     font-size: var(--small);
   }
 
-  .pokemon-card-big .pokemon-card-name {
-    font-weight: 600;
-    font-size: var(--h5);
-    color: black;
-  }
-
   .pokemon-type-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    display: none;
   }
 
   @media (min-width: 600px) {
-    .pokemon-card-small {
-      display: none;
+    .pokemon-card-name {
+      font-weight: 600;
+      font-size: var(--h5);
     }
 
-    .pokemon-card-big {
+    .pokemon-type-wrapper {
       display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .pokemon-image {
+      height: 160px;
+      width: 160px;
     }
   }
 </style>
