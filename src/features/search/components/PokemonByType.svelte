@@ -1,5 +1,7 @@
 <script>
   import { POKEMON_TYPES } from "$lib/pokemonTypes";
+
+  var { updatePokemonType } = $props();
 </script>
 
 <p class="sr-only">Search pokémon by type</p>
@@ -10,6 +12,9 @@
         class="pokemon-type-button"
         style:background-color="var(--{pokemon_type})"
         title={pokemon_type}
+        onclick={function handleClick() {
+          updatePokemonType(pokemon_type);
+        }}
       >
         <img
           src="/pokemon-types/{pokemon_type.toLowerCase()}.svg"
