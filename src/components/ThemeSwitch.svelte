@@ -1,3 +1,19 @@
+<script>
+  import { onMount } from "svelte";
+  import {
+    currentTheme,
+    implementThemeToggling,
+    updateThemeOnInitialLoad,
+  } from "./themeSwitch.svelte.js";
+
+  var themeToggleButton = null;
+
+  onMount(function implementThemeTogglingOnMount() {
+    updateThemeOnInitialLoad();
+    implementThemeToggling(themeToggleButton);
+  });
+</script>
+
 {#snippet sunIcon()}
   <svg
     aria-hidden="true"
@@ -24,9 +40,17 @@
   >
 {/snippet}
 
-<button title="Dark mode" class="theme-toggle-button">
-  <span class="sr-only">Switch to dark mode</span>
-  {@render moonIcon()}
+<button
+  bind:this={themeToggleButton}
+  title="toggle theme"
+  class="theme-toggle-button"
+>
+  <span class="sr-only">Switch to {currentTheme.value} mode</span>
+  {#if currentTheme.value == "light"}
+    {@render moonIcon()}
+  {:else}
+    {@render sunIcon()}
+  {/if}
 </button>
 
 <style>
