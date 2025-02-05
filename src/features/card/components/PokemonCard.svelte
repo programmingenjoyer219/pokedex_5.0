@@ -17,7 +17,12 @@
   class="pokemon-card pokemon-card-small"
   style:border="2px solid var(--{pokemon_types[0]})"
 >
-  <img src="/images/{id}.png" alt={english_name} class="rounded-md size-20" />
+  <img
+    loading="lazy"
+    src="/images/{id}.png"
+    alt={english_name}
+    class="rounded-md size-20"
+  />
   <span
     class="pokemon-card-name"
     style:background-color="var(--{pokemon_types[0]})">{english_name}</span
@@ -31,6 +36,7 @@
   class="pokemon-card pokemon-card-big"
 >
   <img
+    loading="lazy"
     src="/images/{id}.png"
     alt={english_name}
     class="rounded-md"
@@ -80,6 +86,7 @@
     border-radius: var(--border-rounded);
     font-weight: 600;
     color: white;
+    text-shadow: 1px 1px 0 black;
     font-size: var(--small);
   }
 
