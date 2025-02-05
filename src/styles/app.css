@@ -159,6 +159,10 @@ button,
   margin-block: 1.5rem;
 }
 
+.text-shadow {
+  text-shadow: 1px 1px 0 black;
+}
+
 @media (min-width: 600px) {
   .section {
     margin-block: 2rem;

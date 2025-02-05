@@ -24,7 +24,7 @@
     class="rounded-md size-20"
   />
   <span
-    class="pokemon-card-name"
+    class="pokemon-card-name text-shadow"
     style:background-color="var(--{pokemon_types[0]})">{english_name}</span
   >
 </a>
@@ -86,7 +86,6 @@
     border-radius: var(--border-rounded);
     font-weight: 600;
     color: white;
-    text-shadow: 1px 1px 0 black;
     font-size: var(--small);
   }
 

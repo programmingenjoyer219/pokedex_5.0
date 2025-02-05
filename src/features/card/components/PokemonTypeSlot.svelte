@@ -11,7 +11,7 @@
     width={28}
     alt={pokemonType}
   />
-  <span class="pokemon-type-name">
+  <span class="pokemon-type-name text-shadow">
     {pokemonType}
   </span>
 </div>
@@ -24,7 +24,6 @@
     gap: 0.25rem;
     border-radius: 9999px;
     width: 110px;
-    text-shadow: 1px 1px 0 black;
   }
 
   .pokemon-type-icon {
