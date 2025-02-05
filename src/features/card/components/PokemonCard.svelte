@@ -11,41 +11,11 @@
     profile: { height, weight },
     description,
   } = pokemon;
-
-  /*
-  <!-- card design for screen-width >= 600px -->
-  <a
-    href="/pokemon/{id}"
-    style:border="2px solid var(--{pokemon_types[0]})"
-    class="pokemon-card pokemon-card-big"
-  >
-    <img
-      loading="lazy"
-      src="/images/{id}.png"
-      alt="{english_name}. {description}"
-      class="rounded-md"
-      height="160"
-      width="160"
-    />
-    <p class="pokemon-card-name">{english_name}</p>
-    <ul
-      class="pokemon-type-wrapper"
-      aria-label="{english_name} belongs to the type:"
-    >
-      {#each pokemon_types as pokemon_type, index (index)}
-        <li>
-          <PokemonTypeSlot pokemonType={pokemon_type} />
-        </li>
-      {/each}
-    </ul>
-    <PokemonProfileSlot {height} {weight} />
-  </a>
-  */
 </script>
 
 <a
   href="/pokemon/{id}"
-  class="pokemon-card pokemon-card-small"
+  class="pokemon-card"
   style:border="2px solid var(--{pokemon_types[0]})"
 >
   <img
