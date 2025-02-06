@@ -40,10 +40,18 @@
   --h1: calc(var(--h2) * var(--scale));
 
   /* font */
-  --base-font: "Space Grotesk", serif;
+  --base-font: "Space Mono", serif;
 
   /* border radius */
   --border-rounded: 0.25rem;
+}
+
+@font-face {
+  font-family: "Space Mono"; /* Name of the font to use in CSS */
+  src: url("/fonts/SpaceMono-Regular.woff") format("woff"),
+    url("/fonts/SpaceMono-Italic.woff") format("woff"),
+    url("/fonts/SpaceMono-Bold.woff") format("woff"),
+    url("/fonts/SpaceMono-BoldItalic.woff") format("woff");
 }
 
 ::-webkit-scrollbar {

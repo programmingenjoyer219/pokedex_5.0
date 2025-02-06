@@ -8,11 +8,24 @@
 </script>
 
 <svelte:head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
-    rel="stylesheet"
+    crossorigin
+    rel="preload"
+    as="font"
+    href="/fonts/SpaceMono-Regular.woff"
+  />
+  <link
+    crossorigin
+    rel="preload"
+    as="font"
+    href="/fonts/SpaceMono-Italic.woff"
+  />
+  <link crossorigin rel="preload" as="font" href="/fonts/SpaceMono-Bold.woff" />
+  <link
+    crossorigin
+    rel="preload"
+    as="font"
+    href="/fonts/SpaceMono-BoldItalic.woff"
   />
 
   <title>Pokédex 5.0</title>
@@ -22,10 +35,11 @@
   <header class="header">
     <a class="logo" href="/">
       <img
-        src="/pokemon-logo.png"
+        src="/pokemon-logo.webp"
         alt="Pokedex version 5.0"
         height="63"
         width="150"
+        fetchpriority="high"
       />
     </a>
     <ThemeSwitch />

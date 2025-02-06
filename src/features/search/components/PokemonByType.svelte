@@ -21,6 +21,7 @@
           alt={pokemon_type}
           height="28"
           width="28"
+          loading="lazy"
         />
       </button>
     </li>

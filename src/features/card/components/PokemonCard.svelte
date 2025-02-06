@@ -20,7 +20,7 @@
 >
   <img
     loading="lazy"
-    src="/images/{id}.png"
+    src="/images/{id}.webp"
     alt="{english_name}. {description}"
     height="80"
     width="80"
