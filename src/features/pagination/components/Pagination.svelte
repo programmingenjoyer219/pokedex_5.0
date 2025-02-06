@@ -1,5 +1,15 @@
 <script>
+  import { goto } from "$app/navigation";
+
   var { currentPageNumber, numberOfPages } = $props();
+
+  function gotoPreviousPage() {
+    goto(`#page-${currentPageNumber - 1}`);
+  }
+
+  function gotoNextPage() {
+    goto(`#page-${currentPageNumber + 1}`);
+  }
 </script>
 
 {#snippet leftArrowIcon()}
@@ -29,25 +39,27 @@
 {/snippet}
 
 <section class="section pagination">
-  <a
-    href="#page-{currentPageNumber - 1}"
+  <!-- href="#page-{currentPageNumber - 1}" -->
+  <button
+    onclick={gotoPreviousPage}
     title="previous page"
     class="button pagination-button"
-    class:button-disabled={currentPageNumber == 1}
+    disabled={currentPageNumber == 1}
   >
     <span class="sr-only">Go to previous page</span>
     {@render leftArrowIcon()}
-  </a>
+  </button>
   <p class="page-number">Page {currentPageNumber} of {numberOfPages}</p>
-  <a
-    href="#page-{currentPageNumber + 1}"
+  <!-- href="#page-{currentPageNumber + 1}" -->
+  <button
+    onclick={gotoNextPage}
     title="next page"
     class="button pagination-button"
-    class:button-disabled={currentPageNumber == numberOfPages}
+    disabled={currentPageNumber == numberOfPages}
   >
     <span class="sr-only">Go to next page</span>
     {@render rightArrowIcon()}
-  </a>
+  </button>
 </section>
 
 <style>
@@ -75,10 +87,6 @@
 
   .page-number {
     font-size: var(--h5);
-  }
-
-  .button-disabled {
-    visibility: hidden;
   }
 
   @media (min-width: 600px) {
