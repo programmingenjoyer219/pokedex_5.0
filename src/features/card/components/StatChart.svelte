@@ -108,13 +108,19 @@
   </div>
 {/snippet}
 
-<section aria-label="here are {pokemonName}'s stats" class="stat-wrapper">
-  {#each Object.entries(stats) as stat_entry (stat_entry[0])}
-    {@const statName = stat_entry[0]}
-    {@const statValue = stat_entry[1]}
-    {@render chartRow(statName, statValue)}
-  {/each}
-</section>
+{#if stats}
+  <section aria-label="here are {pokemonName}'s stats" class="stat-wrapper">
+    {#each Object.entries(stats) as stat_entry (stat_entry[0])}
+      {@const statName = stat_entry[0]}
+      {@const statValue = stat_entry[1]}
+      {@render chartRow(statName, statValue)}
+    {/each}
+  </section>
+{:else}
+  <section class="stat-wrapper stat-unavailable">
+    <h3>Stats Unavailable</h3>
+  </section>
+{/if}
 
 <style>
   .stat-wrapper {
@@ -132,6 +138,13 @@
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
 
     grid-column: 1/3;
+  }
+
+  .stat-wrapper.stat-unavailable {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    place-content: center;
+    height: 272px;
   }
 
   .stat-icon {
@@ -154,5 +167,9 @@
   .stat-bar-fill {
     background-color: var(--primary-color-light);
     color: transparent;
+  }
+
+  h3 {
+    text-align: center;
   }
 </style>
