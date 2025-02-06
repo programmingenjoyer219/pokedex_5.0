@@ -4,36 +4,31 @@
   import PokemonByType from "$features/search/components/PokemonByType.svelte";
   import SearchBar from "$features/search/components/SearchBar.svelte";
   import pokemon_data from "$lib/data.json";
+  import {
+    prepareSlicingIndexes,
+    provideFilterCriteria,
+  } from "$lib/pokemonSearch";
 
   var POKEMONS_PER_PAGE = 12;
 
   var searchQuery = $state("");
   var pokemonType = $state(null);
-  var queriedPokemons = $derived(pokemon_data.filter(getRequiredPokemons));
+  var queriedPokemons = $derived(
+    pokemon_data.filter(provideFilterCriteria(pokemonType, getSearchQuery()))
+  );
   var numberOfPages = $derived(
     Math.ceil(queriedPokemons.length / POKEMONS_PER_PAGE)
   );
-  var slicingIndexes = $derived.by(prepareSlicingIndexes);
-  // **********************************************************************
-  function getRequiredPokemons(p) {
-    return pokemonType
-      ? p.type.includes(pokemonType) &&
-          p.name.english.toLowerCase().includes(searchQuery.toLowerCase())
-      : p.name.english.toLowerCase().includes(searchQuery.toLowerCase());
+  var slicingIndexes = $derived.by(
+    prepareSlicingIndexes(POKEMONS_PER_PAGE, getNumberOfPages())
+  );
+  // ******************************************************
+  function getSearchQuery() {
+    return searchQuery;
   }
 
-  function prepareSlicingIndexes() {
-    var result = [];
-    var startingPageSliceIndex = 0;
-    var endingPageSliceIndex = POKEMONS_PER_PAGE;
-
-    for (let i = 0; i < numberOfPages; i += 1) {
-      result.push([startingPageSliceIndex, endingPageSliceIndex]);
-      startingPageSliceIndex = endingPageSliceIndex;
-      endingPageSliceIndex = startingPageSliceIndex + POKEMONS_PER_PAGE;
-    }
-
-    return result;
+  function getNumberOfPages() {
+    return numberOfPages;
   }
 </script>
 
