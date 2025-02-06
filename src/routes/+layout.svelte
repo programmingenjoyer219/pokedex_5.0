@@ -28,7 +28,12 @@
     href="/fonts/SpaceMono-BoldItalic.woff"
   />
 
-  <title>Pokédex 5.0</title>
+  <title>Pokédex | Find your favorite Pokémon</title>
+
+  <meta
+    name="description"
+    content="Explore a complete Pokédex with detailed Pokémon stats and abilities. Find your favorite Pokémon and become a true Pokémon Master!"
+  />
 </svelte:head>
 
 <div class="wrapper">

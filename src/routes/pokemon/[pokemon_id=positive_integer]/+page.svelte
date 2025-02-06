@@ -22,6 +22,11 @@
     .join(", ");
 </script>
 
+<svelte:head>
+  <title>{english_name}</title>
+  <meta name="description" content={description} />
+</svelte:head>
+
 <img
   loading="lazy"
   src="/images/{id}.webp"
