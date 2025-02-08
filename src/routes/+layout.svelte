@@ -77,10 +77,6 @@
     align-items: center;
   }
 
-  .theme-toggle-button {
-    justify-self: flex-end;
-  }
-
   @media (min-width: 600px) {
     .logo img {
       width: 200px;

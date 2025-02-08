@@ -62,6 +62,8 @@
   }
 
   .theme-toggle-button {
+    justify-self: flex-end;
+
     display: flex;
     justify-content: center;
     align-items: center;
