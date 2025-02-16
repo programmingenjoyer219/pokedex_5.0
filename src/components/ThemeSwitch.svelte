@@ -10,7 +10,7 @@
 
   onMount(function implementThemeTogglingOnMount() {
     updateThemeOnInitialLoad();
-    implementThemeToggling(themeToggleButton);
+    return implementThemeToggling(themeToggleButton);
   });
 </script>
 
