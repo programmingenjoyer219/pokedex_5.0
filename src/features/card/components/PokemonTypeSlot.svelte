@@ -14,7 +14,7 @@
         alt=""
         class="pokemon-type__icon rounded-full"
     />
-    <span class="pokemon-type__name">
+    <span class="pokemon-type__name text-shadow">
         {pokemonType}
     </span>
 </div>

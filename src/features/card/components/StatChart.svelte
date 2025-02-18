@@ -103,13 +103,16 @@
         <span>{statValue}</span>
     </div>
 
-    <div aria-hidden="true" class="stat-bar">
-        <div class="stat-bar-fill" style:width="{barWidth}%">.</div>
+    <div aria-hidden="true" class="stat-bar rounded-sm">
+        <div class="stat-bar__fill rounded-sm" style:width="{barWidth}%">.</div>
     </div>
 {/snippet}
 
 {#if stats}
-    <section aria-label="here are {pokemonName}'s stats">
+    <section
+        aria-label="here are {pokemonName}'s stats"
+        class="stats rounded-sm"
+    >
         {#each Object.entries(stats) as stat_entry (stat_entry[0])}
             {@const statName = stat_entry[0]}
             {@const statValue = stat_entry[1]}
@@ -117,7 +120,53 @@
         {/each}
     </section>
 {:else}
-    <section>
+    <section class="stats unavailable rounded-sm">
         <h3>Stats Unavailable</h3>
     </section>
 {/if}
+
+<style>
+    .stats {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: repeat(6, auto);
+        place-content: center;
+        gap: 1rem;
+        padding: 1rem;
+        border: 2px solid var(--clr-blue-400);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
+        grid-column: 1/3;
+    }
+
+    .stats.unavailable {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        place-content: center;
+        height: 272px;
+    }
+
+    .stat-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    .icon-value-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+
+    .stat-bar {
+        padding: 0.25rem;
+        border: 2px solid var(--clr-blue-500);
+    }
+
+    .stat-bar__fill {
+        background-color: var(--clr-blue-400);
+        color: transparent;
+    }
+
+    h3 {
+        text-align: center;
+    }
+</style>

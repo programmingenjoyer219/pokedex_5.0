@@ -542,7 +542,6 @@
 
     html {
         font-family: var(--font-family);
-        line-height: 1.25;
         scroll-padding: 2rem;
         scroll-behavior: smooth;
     }
@@ -555,6 +554,7 @@
 
     body {
         font-size: var(--base-font-size);
+        line-height: 1.25;
         /* background pattern */
         background-color: var(--bg-pattern-color);
         background-image: var(--bg-pattern-image);
@@ -624,6 +624,12 @@
     /* selects everything except the first child */
     .flow > * + * {
         margin-block-start: var(--flow-gap, 1em);
+    }
+
+    .flex-group {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
     }
 
     .section {

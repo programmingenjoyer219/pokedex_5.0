@@ -33,10 +33,11 @@
     alt="{english_name}. {description}"
     height="280"
     width="280"
+    class="pokemon-image"
 />
 
-<section>
-    <div>
+<section class="flow">
+    <div class="info">
         <p>Species: <span>{species}</span></p>
         <p>Height: <span>{height}</span></p>
         <p>Weight: <span>{weight}</span></p>
@@ -48,7 +49,7 @@
         </p>
     </div>
 
-    <ul aria-label="{english_name} belongs to the type:">
+    <ul aria-label="{english_name} belongs to the type:" class="flex-group">
         {#each pokemon_types as pokemon_type, index (index)}
             <li>
                 <PokemonTypeSlot pokemonType={pokemon_type} />
@@ -60,3 +61,14 @@
 </section>
 
 <StatChart pokemonName={english_name} {stats} />
+
+<style>
+    .pokemon-image {
+        margin-inline: auto;
+    }
+
+    .info span {
+        color: var(--clr-blue-500);
+        font-weight: 600;
+    }
+</style>
