@@ -28,16 +28,44 @@
     >
 {/snippet}
 
-<div>
-    <div>
+<div class="profile">
+    <div class="profile__stat">
         {@render heightIcon()}
         <span class="sr-only">height</span>
         <span>{height}</span>
     </div>
 
-    <div>
+    <div class="profile__stat">
         {@render weightIcon()}
         <span class="sr-only">weight</span>
         <span>{weight}</span>
     </div>
 </div>
+
+<style>
+    .height-icon,
+    .weight-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    .profile {
+        display: none;
+
+        @media (width > 600px) {
+            color: black;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+
+    .profile__stat {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+</style>

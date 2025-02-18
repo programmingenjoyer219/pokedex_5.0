@@ -524,7 +524,6 @@
         --border-radius-1: 0.25rem;
         --border-radius-2: 0.5rem;
         --border-radius-3: 0.75rem;
-        --border-radius-full: 50%;
         /* background pattern */
         --bg-pattern-color: hsl(217, 100%, 97%);
         --bg-pattern-image: radial-gradient(
@@ -642,6 +641,19 @@
         padding-inline: 1rem;
     }
 
+    .grid-auto-fit {
+        display: grid;
+        place-content: center;
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(
+                var(--grid-auto-fit-min-width),
+                var(--grid-auto-fit-max-width)
+            )
+        );
+        gap: 1rem;
+    }
+
     .layout-test {
         border: 2px dotted red;
         & * {
@@ -663,6 +675,16 @@
     ::-webkit-scrollbar-thumb {
         background: var(--clr-blue-400);
         min-height: 100px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1rem;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -736,7 +758,12 @@
     .rounded-lg {
         border-radius: var(--border-radius-3);
     }
+
     .rounded-full {
-        border-radius: var(--border-radius-full);
+        border-radius: 50%;
+    }
+
+    .rounded-capsule {
+        border-radius: 9999px;
     }
 }

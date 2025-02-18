@@ -34,7 +34,7 @@
     }
 </script>
 
-<section>
+<section class="section flow">
     <SearchBar bind:searchQuery />
     <PokemonByType
         updatePokemonType={function updatePokemonType(value) {
@@ -43,7 +43,7 @@
     />
 </section>
 
-<main>
+<main class="section">
     {#each { length: numberOfPages }, pageIndex}
         <!--  -->
         {@const slicingIndexesForCurrentPage = slicingIndexes[pageIndex]}
@@ -51,15 +51,32 @@
         {@const endingPageSliceIndex = slicingIndexesForCurrentPage[1]}
         {@const currentPageNumber = pageIndex + 1}
         <!--  -->
-        <div id="page-{currentPageNumber}">
+        <section class="section flow" id="page-{currentPageNumber}">
             <Pagination {currentPageNumber} {numberOfPages} />
-            <section>
+            <div class="grid-auto-fit">
                 {#each queriedPokemons.slice(startingPageSliceIndex, endingPageSliceIndex) as pokemon (pokemon.id)}
                     <PokemonCard {pokemon} />
                 {/each}
-            </section>
-        </div>
+            </div>
+        </section>
     {:else}
         <h3>No results...</h3>
     {/each}
 </main>
+
+<style>
+    .grid-auto-fit {
+        --grid-auto-fit-min-width: 8rem;
+        --grid-auto-fit-max-width: 8.001rem;
+        @media (width > 600px) {
+            --grid-auto-fit-min-width: 280px;
+            --grid-auto-fit-max-width: 281px;
+        }
+    }
+
+    h3 {
+        text-align: center;
+        color: var(--clr-blue-500);
+        font-weight: 600;
+    }
+</style>
