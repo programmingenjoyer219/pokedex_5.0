@@ -636,7 +636,8 @@
     }
 
     .wrapper {
-        max-width: calc(1024px + 1rem);
+        --wrapper-max-width: 56rem;
+        max-width: calc(var(--wrapper-max-width) + 1rem);
         margin-inline: auto;
         padding-inline: 1rem;
     }
