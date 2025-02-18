@@ -60,13 +60,31 @@
     >
 {/snippet}
 
-<section>
+<section class="section flow">
     <h1>
         {page.status}
     </h1>
     {@render notFoundIcon()}
-    <p>
+    <p class="h3">
         {page.error?.message}
     </p>
-    <a href="/">Go back to home page</a>
+    <a href="/" class="button text-shadow">Go back to home page</a>
 </section>
+
+<style>
+    .section {
+        text-align: center;
+    }
+
+    h1 {
+        font-weight: 600;
+        color: var(--clr-blue-500);
+    }
+
+    a[href="/"] {
+        display: inline-block;
+        padding: 0.75rem;
+        background-color: var(--clr-blue-500);
+        color: white;
+    }
+</style>
