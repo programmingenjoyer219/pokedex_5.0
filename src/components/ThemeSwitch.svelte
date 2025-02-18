@@ -40,7 +40,7 @@
     >
 {/snippet}
 
-<button bind:this={themeToggleButton} title="toggle theme" class="rounded">
+<button bind:this={themeToggleButton} title="toggle theme" class="rounded-full">
     <span class="sr-only">Switch to {currentTheme.value} mode</span>
     {#if currentTheme.value == "light"}
         {@render moonIcon()}

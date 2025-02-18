@@ -724,7 +724,18 @@
         text-shadow: 1px 1px 0 black;
     }
 
-    .rounded {
+    .rounded-sm {
+        border-radius: var(--border-radius-1);
+    }
+
+    .rounded-md {
+        border-radius: var(--border-radius-2);
+    }
+
+    .rounded-lg {
+        border-radius: var(--border-radius-3);
+    }
+    .rounded-full {
         border-radius: var(--border-radius-full);
     }
 }
