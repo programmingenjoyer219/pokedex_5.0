@@ -53,7 +53,6 @@
         display: none;
 
         @media (width > 600px) {
-            color: black;
             font-weight: 600;
             display: flex;
             align-items: center;

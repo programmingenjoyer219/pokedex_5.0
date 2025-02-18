@@ -1,17 +1,31 @@
 <script>
     import { onMount } from "svelte";
-    import {
-        currentTheme,
-        implementThemeToggling,
-        updateThemeOnInitialLoad,
-    } from "./themeSwitch.svelte.js";
+    import { pipeline } from "$lib/helpers";
 
-    var themeToggleButton = null;
+    var theme = $state("dark");
 
-    onMount(function implementThemeTogglingOnMount() {
-        updateThemeOnInitialLoad();
-        return implementThemeToggling(themeToggleButton);
+    function getHTMLEl() {
+        return document.querySelector("html");
+    }
+
+    function updateHTMLDataset() {
+        getHTMLEl().dataset.theme = theme;
+    }
+
+    function updateThemeInLocalStorage() {
+        localStorage.setItem("theme", theme);
+    }
+
+    var themeToggleSideEffects = pipeline(
+        updateHTMLDataset,
+        updateThemeInLocalStorage
+    );
+
+    onMount(function updateThemeOnMount() {
+        theme = localStorage.getItem("theme") ?? "dark";
     });
+
+    $effect(themeToggleSideEffects);
 </script>
 
 {#snippet sunIcon()}
@@ -40,9 +54,19 @@
     >
 {/snippet}
 
-<button bind:this={themeToggleButton} title="toggle theme" class="rounded-full">
-    <span class="sr-only">Switch to {currentTheme.value} mode</span>
-    {#if currentTheme.value == "light"}
+<button
+    onclick={function toggleTheme() {
+        if (theme == "dark") {
+            theme = "light";
+        } else {
+            theme = "dark";
+        }
+    }}
+    title="toggle theme"
+    class="rounded-full"
+>
+    <span class="sr-only">Switch to {theme} mode</span>
+    {#if theme == "light"}
         {@render moonIcon()}
     {:else}
         {@render sunIcon()}

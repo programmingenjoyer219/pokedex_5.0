@@ -503,6 +503,8 @@
         --Rock: #c9bb8a;
         --Steel: #5695a3;
         --Water: #539ddf;
+        /* text color */
+        --text-clr: #222;
     }
 
     /* typography */
@@ -552,9 +554,19 @@
         }
     }
 
+    [data-theme="dark"] {
+        --bg-pattern-color: hsl(217, 100%, 3%);
+        --bg-pattern-image: radial-gradient(
+            hsl(214, 92%, 38%) 0.5px,
+            hsl(217, 100%, 3%) 0.5px
+        );
+        --text-clr: #fff;
+    }
+
     body {
         font-size: var(--base-font-size);
         line-height: 1.25;
+        color: var(--text-clr);
         /* background pattern */
         background-color: var(--bg-pattern-color);
         background-image: var(--bg-pattern-image);
@@ -568,6 +580,7 @@
 
     a {
         text-decoration: none;
+        color: var(--text-clr);
     }
 
     /* focusable elements */
