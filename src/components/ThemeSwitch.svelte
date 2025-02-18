@@ -40,7 +40,7 @@
     >
 {/snippet}
 
-<button bind:this={themeToggleButton} title="toggle theme">
+<button bind:this={themeToggleButton} title="toggle theme" class="rounded">
     <span class="sr-only">Switch to {currentTheme.value} mode</span>
     {#if currentTheme.value == "light"}
         {@render moonIcon()}
@@ -48,3 +48,19 @@
         {@render sunIcon()}
     {/if}
 </button>
+
+<style>
+    .sun-icon,
+    .moon-icon {
+        height: 1.5rem;
+        width: 1.5rem;
+        color: white;
+    }
+
+    button {
+        display: grid;
+        place-content: center;
+        padding: 0.5rem;
+        background-color: var(--clr-blue-500);
+    }
+</style>

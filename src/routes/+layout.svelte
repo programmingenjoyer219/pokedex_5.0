@@ -39,9 +39,9 @@
     />
 </svelte:head>
 
-<div>
-    <header>
-        <a href="/">
+<div class="wrapper">
+    <header class="site-header">
+        <a href="/" class="logo">
             <img
                 src="/pokemon-logo.webp"
                 alt="Pokedex version 5.0"
@@ -54,3 +54,27 @@
     </header>
     {@render children()}
 </div>
+
+<style>
+    .site-header {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        max-width: 12rem;
+        margin-inline: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        left: 1rem;
+
+        @media (width > 600px) {
+            img {
+                width: 200px;
+                height: 84px;
+            }
+        }
+    }
+</style>
