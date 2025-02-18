@@ -38,7 +38,7 @@
     >
 {/snippet}
 
-<section class="section pagination">
+<div class="pagination">
     <!-- href="#page-{currentPageNumber - 1}" -->
     <button
         onclick={gotoPreviousPage}
@@ -58,4 +58,44 @@
         <span class="sr-only">Go to next page</span>
         {@render rightArrowIcon()}
     </button>
-</section>
+</div>
+
+<style>
+    .left-arrow-icon,
+    .right-arrow-icon {
+        height: 1rem;
+        width: 1rem;
+        color: white;
+
+        @media (width > 600px) {
+            height: 1.25rem;
+            width: 1.25rem;
+        }
+    }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+
+    .page-number {
+        font-size: var(--h5);
+
+        @media (width > 600px) {
+            font-size: var(--h4);
+        }
+    }
+
+    button {
+        display: grid;
+        place-content: center;
+        padding: 0.5rem;
+        background-color: var(--clr-blue-500);
+
+        @media (width > 600px) {
+            padding: 0.75rem;
+        }
+    }
+</style>

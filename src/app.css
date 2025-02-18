@@ -605,7 +605,7 @@
     button {
         cursor: pointer;
         border: none;
-        border-radius: var(--border-rounded);
+        border-radius: var(--border-radius-1);
         transition: opacity 150ms;
 
         &:hover {
