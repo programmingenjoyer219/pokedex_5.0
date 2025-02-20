@@ -594,6 +594,11 @@
         outline: 2px solid var(--clr-blue-400);
     }
 
+    input,
+    textarea {
+        color: var(--text-clr);
+    }
+
     h1 {
         font-size: var(--h1);
     }
