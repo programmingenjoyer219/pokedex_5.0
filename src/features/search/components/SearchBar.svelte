@@ -1,5 +1,11 @@
 <script>
+    import { debounce } from "$lib/helpers";
+
     var { searchQuery = $bindable("") } = $props();
+
+    var updateSearchQuery = debounce(200)(function updateSearchQuery(e) {
+        searchQuery = e.target.value;
+    });
 </script>
 
 <form role="search" class="rounded-sm">
@@ -13,7 +19,7 @@
         placeholder="I choose you..."
         aria-label="Search"
         autocomplete="off"
-        bind:value={searchQuery}
+        oninput={updateSearchQuery}
     />
 </form>
 
