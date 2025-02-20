@@ -14,24 +14,14 @@
     var searchQuery = $state("");
     var pokemonType = $state(null);
     var queriedPokemons = $derived(
-        pokemon_data.filter(
-            provideFilterCriteria(pokemonType, getSearchQuery())
-        )
+        pokemon_data.filter(provideFilterCriteria(pokemonType, searchQuery))
     );
     var numberOfPages = $derived(
         Math.ceil(queriedPokemons.length / POKEMONS_PER_PAGE)
     );
-    var slicingIndexes = $derived.by(
-        prepareSlicingIndexes(POKEMONS_PER_PAGE, getNumberOfPages())
+    var slicingIndexes = $derived(
+        prepareSlicingIndexes(POKEMONS_PER_PAGE, numberOfPages)
     );
-    // ******************************************************
-    function getSearchQuery() {
-        return searchQuery;
-    }
-
-    function getNumberOfPages() {
-        return numberOfPages;
-    }
 </script>
 
 <section class="section flow">
