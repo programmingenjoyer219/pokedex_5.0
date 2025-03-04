@@ -1,14 +1,15 @@
 <script>
-    import { goto } from "$app/navigation";
-
-    var { currentPageNumber, numberOfPages } = $props();
+    var { numberOfPages, currentPageIndex = $bindable(0) } = $props();
+    var currentPageNumber = $derived(currentPageIndex + 1);
 
     function gotoPreviousPage() {
-        goto(`#page-${currentPageNumber - 1}`);
+        if (currentPageNumber == 1) return;
+        currentPageIndex -= 1;
     }
 
     function gotoNextPage() {
-        goto(`#page-${currentPageNumber + 1}`);
+        if (currentPageNumber == numberOfPages) return;
+        currentPageIndex += 1;
     }
 </script>
 
@@ -39,7 +40,6 @@
 {/snippet}
 
 <div class="pagination">
-    <!-- href="#page-{currentPageNumber - 1}" -->
     <button
         onclick={gotoPreviousPage}
         title="previous page"
@@ -48,8 +48,9 @@
         <span class="sr-only">Go to previous page</span>
         {@render leftArrowIcon()}
     </button>
+
     <p class="page-number">Page {currentPageNumber} of {numberOfPages}</p>
-    <!-- href="#page-{currentPageNumber + 1}" -->
+
     <button
         onclick={gotoNextPage}
         title="next page"

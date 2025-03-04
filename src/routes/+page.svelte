@@ -4,24 +4,30 @@
     import PokemonByType from "$features/search/components/PokemonByType.svelte";
     import SearchBar from "$features/search/components/SearchBar.svelte";
     import pokemon_data from "$lib/data.json";
-    import {
-        prepareSlicingIndexes,
-        provideFilterCriteria,
-    } from "$lib/pokemonSearch";
+    import { provideFilterCriteria } from "$lib/pokemonSearch";
 
-    var POKEMONS_PER_PAGE = 12;
+    const POKEMONS_PER_PAGE = 12;
 
     var searchQuery = $state("");
     var pokemonType = $state(null);
     var queriedPokemons = $derived(
         pokemon_data.filter(provideFilterCriteria(pokemonType, searchQuery))
     );
-    var numberOfPages = $derived(
-        Math.ceil(queriedPokemons.length / POKEMONS_PER_PAGE)
-    );
-    var slicingIndexes = $derived(
-        prepareSlicingIndexes(POKEMONS_PER_PAGE, numberOfPages)
-    );
+    var paginatedData = $derived(formatData(queriedPokemons));
+    var numberOfPages = $derived(paginatedData.length);
+    var currentPageIndex = $state(0);
+
+    $effect(function resetCurrentPageIndex() {
+        searchQuery;
+        pokemonType;
+        currentPageIndex = 0;
+    });
+    // ************
+    function formatData(data) {
+        if (data.length <= POKEMONS_PER_PAGE) return [data];
+        var pokemonsInPage = data.slice(0, POKEMONS_PER_PAGE);
+        return [pokemonsInPage, ...formatData(data.slice(POKEMONS_PER_PAGE))];
+    }
 </script>
 
 <section class="section flow">
@@ -34,24 +40,19 @@
 </section>
 
 <main class="section">
-    {#each { length: numberOfPages }, pageIndex}
-        <!--  -->
-        {@const slicingIndexesForCurrentPage = slicingIndexes[pageIndex]}
-        {@const startingPageSliceIndex = slicingIndexesForCurrentPage[0]}
-        {@const endingPageSliceIndex = slicingIndexesForCurrentPage[1]}
-        {@const currentPageNumber = pageIndex + 1}
-        <!--  -->
-        <section class="section flow" id="page-{currentPageNumber}">
-            <Pagination {currentPageNumber} {numberOfPages} />
+    {#if paginatedData[0].length > 0}
+        <section class="section flow">
+            <Pagination {numberOfPages} bind:currentPageIndex />
             <div class="grid-auto-fit">
-                {#each queriedPokemons.slice(startingPageSliceIndex, endingPageSliceIndex) as pokemon (pokemon.id)}
+                {#each paginatedData[currentPageIndex] as pokemon (pokemon.id)}
                     <PokemonCard {pokemon} />
                 {/each}
             </div>
+            <Pagination {numberOfPages} bind:currentPageIndex />
         </section>
     {:else}
         <h3>No results...</h3>
-    {/each}
+    {/if}
 </main>
 
 <style>
