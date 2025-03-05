@@ -1,6 +1,7 @@
 <script>
     import PokemonProfileSlot from "./PokemonProfileSlot.svelte";
     import PokemonTypeSlot from "./PokemonTypeSlot.svelte";
+    import ThreeDimensionalCard from "./ThreeDimensionalCard.svelte";
 
     var { pokemon } = $props();
     var {
@@ -12,43 +13,42 @@
     } = pokemon;
 </script>
 
-<a
-    href="/pokemon/{id}"
-    style:border="2px solid var(--{pokemon_types[0]})"
-    class="card rounded-md"
->
-    <img
-        loading="lazy"
-        src="/images/{id}.webp"
-        alt="{english_name}. {description}"
-        height="80"
-        width="80"
-        class="card__image"
-    />
-    <p
-        class="card__title rounded-sm text-shadow"
-        style:background-color="var(--{pokemon_types[0]})"
+<ThreeDimensionalCard>
+    <a
+        href="/pokemon/{id}"
+        style:border="2px solid var(--{pokemon_types[0]})"
+        class="card rounded-md"
     >
-        {english_name}
-    </p>
-    <ul class="card__list" aria-label="{english_name} belongs to the type:">
-        {#each pokemon_types as pokemon_type, index (index)}
-            <li>
-                <PokemonTypeSlot pokemonType={pokemon_type} />
-            </li>
-        {/each}
-    </ul>
-    <PokemonProfileSlot {height} {weight} />
-</a>
+        <img
+            loading="lazy"
+            src="/images/{id}.webp"
+            alt="{english_name}. {description}"
+            height="80"
+            width="80"
+            class="card__image"
+        />
+        <p
+            class="card__title rounded-sm text-shadow"
+            style:background-color="var(--{pokemon_types[0]})"
+        >
+            {english_name}
+        </p>
+        <ul class="card__list" aria-label="{english_name} belongs to the type:">
+            {#each pokemon_types as pokemon_type, index (index)}
+                <li>
+                    <PokemonTypeSlot pokemonType={pokemon_type} />
+                </li>
+            {/each}
+        </ul>
+        <PokemonProfileSlot {height} {weight} />
+    </a>
+</ThreeDimensionalCard>
 
 <style>
     .card {
-        transition:
-            transform 150ms,
-            box-shadow 150ms;
+        transition: box-shadow 150ms;
 
         &:hover {
-            transform: translateY(-0.25rem);
             box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.15);
         }
     }
