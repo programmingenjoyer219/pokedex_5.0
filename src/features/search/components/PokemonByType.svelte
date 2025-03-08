@@ -1,4 +1,5 @@
 <script>
+    import { applyViewTransition } from "$lib/helpers";
     import { POKEMON_TYPES } from "$lib/pokemonTypes";
 
     var { updatePokemonType } = $props();
@@ -11,9 +12,9 @@
             <button
                 style:background-color="var(--{pokemon_type})"
                 title={pokemon_type}
-                onclick={function handleClick() {
+                onclick={applyViewTransition(function handleClick() {
                     updatePokemonType(pokemon_type);
-                }}
+                })}
                 class="rounded-sm"
             >
                 <img

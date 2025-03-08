@@ -26,6 +26,7 @@
             height="80"
             width="80"
             class="card__image"
+            style:view-transition-name={english_name}
         />
         <p
             class="card__title rounded-sm text-shadow"

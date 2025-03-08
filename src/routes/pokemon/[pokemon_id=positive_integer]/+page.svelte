@@ -34,6 +34,7 @@
     height="280"
     width="280"
     class="pokemon-image"
+    style:view-transition-name={english_name}
 />
 
 <section class="flow">

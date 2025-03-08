@@ -17,3 +17,13 @@ export function debounce(delay) {
         };
     };
 }
+
+export function applyViewTransition(cb) {
+    return function viewTransitionApplied() {
+        if (document.startViewTransition) {
+            document.startViewTransition(cb);
+        } else {
+            cb();
+        }
+    };
+}

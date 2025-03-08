@@ -1,8 +1,19 @@
 <script>
     import "../app.css";
     import ThemeSwitch from "$components/ThemeSwitch.svelte";
+    import { onNavigate } from "$app/navigation";
+    import { applyViewTransition } from "$lib/helpers";
 
     var { children } = $props();
+
+    onNavigate(function handleNavigate(navigation) {
+        return new Promise(function executor(resolve) {
+            applyViewTransition(async function resolvePromise() {
+                resolve();
+                await navigation.complete;
+            })();
+        });
+    });
 </script>
 
 <svelte:head>
