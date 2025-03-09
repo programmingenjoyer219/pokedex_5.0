@@ -7,6 +7,24 @@
 
 <p class="sr-only">Search pokémon by type</p>
 <ul class="rounded-sm">
+    <li>
+        <button
+            style:background-color="var(--clr-blue-500)"
+            title="All"
+            onclick={applyViewTransition(function handleClick() {
+                updatePokemonType(null);
+            })}
+            class="rounded-sm"
+        >
+            <img
+                src="/favicon.png"
+                alt="All pokémons"
+                height="28"
+                width="28"
+                loading="lazy"
+            />
+        </button>
+    </li>
     {#each POKEMON_TYPES as pokemon_type}
         <li>
             <button
