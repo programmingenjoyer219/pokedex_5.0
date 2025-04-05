@@ -59,8 +59,9 @@
 /* colors */
 @theme {
 	--color-*: initial;
-	--color-white: hsl(0, 0%, 100%);
+	--color-white: hsl(0, 0%, 90%);
 	--color-black: hsl(0, 0%, 13%);
+	--color-gray: hsl(0, 0%, 75%);
 	--color-primary-400: hsl(221, 83%, 63%);
 	--color-primary-500: hsl(221, 83%, 53%);
 	--color-bug: #92bc2c;

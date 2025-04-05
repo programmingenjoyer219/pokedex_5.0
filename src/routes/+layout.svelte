@@ -30,7 +30,7 @@
 	/>
 </svelte:head>
 
-<div class="inline-wrapper">
+<div class="inline-wrapper flow">
 	<Header />
 	{@render children()}
 </div>

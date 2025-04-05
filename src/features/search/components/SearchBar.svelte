@@ -8,8 +8,8 @@
 	});
 </script>
 
-<form role="search">
-	<label for="search-input">Search your favorite pokémon</label>
+<form role="search" class="border-gray flex rounded-sm border-2 p-3 sm:p-4">
+	<label class="sr-only" for="search-input">Search your favorite pokémon</label>
 	<input
 		id="search-input"
 		type="text"
@@ -17,5 +17,7 @@
 		aria-label="Search"
 		autocomplete="off"
 		oninput={updateSearchQuery}
+		autofocus
+		class="border-gray focus:border-primary-500 placeholder:text-primary-500 flex-1 rounded-sm border-2 p-3 text-sm font-bold sm:p-4 sm:text-base"
 	/>
 </form>
