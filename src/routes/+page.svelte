@@ -30,27 +30,25 @@
 	}
 </script>
 
-<section>
-	<SearchBar bind:searchQuery />
-	<PokemonByType
-		updatePokemonType={function updatePokemonType(value) {
-			pokemonType = value;
-		}}
-	/>
-</section>
+<div class="flow">
+	<section class="flow">
+		<SearchBar bind:searchQuery />
+		<PokemonByType bind:pokemonTypeValue={pokemonType} />
+	</section>
 
-<main>
-	{#if paginatedData[0].length > 0}
-		<section>
-			<Pagination {numberOfPages} bind:currentPageIndex />
-			<div>
-				{#each paginatedData[currentPageIndex] as pokemon (pokemon.id)}
-					<PokemonCard {pokemon} />
-				{/each}
-			</div>
-			<Pagination {numberOfPages} bind:currentPageIndex />
-		</section>
-	{:else}
-		<h3>No results...</h3>
-	{/if}
-</main>
+	<main>
+		{#if paginatedData[0].length > 0}
+			<section>
+				<Pagination {numberOfPages} bind:currentPageIndex />
+				<div>
+					{#each paginatedData[currentPageIndex] as pokemon (pokemon.id)}
+						<PokemonCard {pokemon} />
+					{/each}
+				</div>
+				<Pagination {numberOfPages} bind:currentPageIndex />
+			</section>
+		{:else}
+			<h3>No results...</h3>
+		{/if}
+	</main>
+</div>
