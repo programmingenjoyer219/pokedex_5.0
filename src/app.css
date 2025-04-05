@@ -1,1 +1,153 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/* miscellaneous */
+:root {
+	--bg-pattern-color: hsl(217, 100%, 97%);
+	--bg-pattern-image: radial-gradient(hsl(214, 92%, 62%) 0.5px, hsl(217, 100%, 97%) 0.5px);
+}
+
+/* typography */
+@theme {
+	--font-*: initial;
+	--font-space-mono: 'Space Mono', monospaced;
+
+	--text-*: initial;
+
+	--text-sm: 0.875rem;
+	--text-sm--line-height: 1.6;
+
+	--text-base: 1rem;
+	--text-base--line-height: 1.6;
+
+	--text-md: 1.25rem;
+	--text-md--line-height: 1.6;
+
+	--text-lg: 1.5rem;
+	--text-lg--line-height: 1;
+
+	--text-xl: 2rem;
+	--text-xl--line-height: 1;
+
+	--text-2xl: 3rem;
+	--text-2xl--line-height: 1;
+
+	--text-3xl: 5rem;
+	--text-3xl--line-height: 1;
+
+	--text-4xl: 7.5rem;
+	--text-4xl--line-height: 1;
+}
+
+/* references font size */
+@theme {
+	--text-heading-sm: var(--text-lg);
+	--text-heading-sm--line-height: var(--text-lg--line-height);
+
+	--text-heading-base: var(--text-xl);
+	--text-heading-base--line-height: var(--text-xl--line-height);
+
+	--text-heading-md: var(--text-2xl);
+	--text-heading-md--line-height: var(--text-2xl--line-height);
+
+	--text-heading-lg: var(--text-3xl);
+	--text-heading-lg--line-height: var(--text-3xl--line-height);
+
+	--text-heading-xl: var(--text-4xl);
+	--text-heading-xl--line-height: var(--text-4xl--line-height);
+}
+
+/* colors */
+@theme {
+	--color-*: initial;
+	--color-white: hsl(0, 0%, 100%);
+	--color-black: hsl(0, 0%, 13%);
+	--color-primary-400: hsl(221, 83%, 63%);
+	--color-primary-500: hsl(221, 83%, 53%);
+	--color-bug: #92bc2c;
+	--color-dark: #595761;
+	--color-dragon: #0c69c8;
+	--color-electric: #d9be2b;
+	--color-fairy: #ee90e6;
+	--color-fighting: #d3425f;
+	--color-fire: #fba54c;
+	--color-flying: #a1bbec;
+	--color-ghost: #5f6dbc;
+	--color-grass: #5fbd58;
+	--color-ground: #da7c4d;
+	--color-ice: #75d0c1;
+	--color-normal: #a0a29f;
+	--color-poison: #b763cf;
+	--color-psychic: #fa8581;
+	--color-rock: #c9bb8a;
+	--color-steel: #5695a3;
+	--color-water: #539ddf;
+}
+
+@layer components {
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--color-primary-400);
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: var(--color-primary-500);
+		min-height: 100px;
+	}
+}
+
+@layer utilities {
+	.flow > * + * {
+		margin-block-start: 1em;
+	}
+
+	.inline-wrapper {
+		@apply mx-auto max-w-[1200px] px-4 py-12 sm:px-6 sm:py-20;
+	}
+}
+
+/* toggle dark mode using data-theme='dark' */
+/* https://tailwindcss.com/docs/dark-mode#using-a-data-attribute */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@font-face {
+	font-family: 'Space Mono';
+	src:
+		url('/fonts/SpaceMono-Regular.woff') format('woff'),
+		url('/fonts/SpaceMono-Italic.woff') format('woff'),
+		url('/fonts/SpaceMono-Bold.woff') format('woff'),
+		url('/fonts/SpaceMono-BoldItalic.woff') format('woff');
+}
+
+[data-theme='dark'] {
+	--bg-pattern-color: hsl(217, 100%, 3%);
+	--bg-pattern-image: radial-gradient(hsl(214, 92%, 38%) 0.5px, hsl(217, 100%, 3%) 0.5px);
+}
+
+body {
+	background-color: var(--bg-pattern-color);
+	background-image: var(--bg-pattern-image);
+	background-size: 10px 10px;
+}
+
+:is(
+		a[href],
+		button,
+		input,
+		textarea,
+		select,
+		details,
+		[tabindex]:not([tabindex='-1'])
+	):focus-visible {
+	outline: 2px solid var(--color-primary-400);
+}
+
+@media (prefers-reduced-motion) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
