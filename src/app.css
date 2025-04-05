@@ -104,7 +104,7 @@
 	}
 
 	.inline-wrapper {
-		@apply mx-auto max-w-[1200px] px-4 py-12 sm:px-6 sm:py-20;
+		@apply mx-auto max-w-[1000px] p-4 sm:p-6;
 	}
 }
 
@@ -141,7 +141,7 @@ body {
 		details,
 		[tabindex]:not([tabindex='-1'])
 	):focus-visible {
-	outline: 2px solid var(--color-primary-400);
+	@apply outline-primary-400 outline-2 outline-offset-2;
 }
 
 @media (prefers-reduced-motion) {

@@ -1,8 +1,8 @@
 <script>
 	import '../app.css';
-	import ThemeSwitch from '$components/ThemeSwitch.svelte';
 	import { onNavigate } from '$app/navigation';
 	import { applyViewTransition } from '$lib/helpers';
+	import Header from '$components/Header.svelte';
 
 	var { children } = $props();
 
@@ -30,18 +30,7 @@
 	/>
 </svelte:head>
 
-<div>
-	<header>
-		<a href="/">
-			<img
-				src="/pokemon-logo.webp"
-				alt="Pokedex version 5.0"
-				height="63"
-				width="150"
-				fetchpriority="high"
-			/>
-		</a>
-		<ThemeSwitch />
-	</header>
+<div class="inline-wrapper">
+	<Header />
 	{@render children()}
 </div>
