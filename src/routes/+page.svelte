@@ -36,7 +36,7 @@
 		<PokemonByType bind:pokemonTypeValue={pokemonType} />
 	</section>
 
-	<main>
+	<main class="flow">
 		{#if paginatedData[0].length > 0}
 			<section>
 				<Pagination {numberOfPages} bind:currentPageIndex />

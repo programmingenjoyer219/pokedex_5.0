@@ -97,6 +97,10 @@
 		background: var(--color-primary-500);
 		min-height: 100px;
 	}
+
+	button {
+		@apply cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+	}
 }
 
 @layer utilities {
