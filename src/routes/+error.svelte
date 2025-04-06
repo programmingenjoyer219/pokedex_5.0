@@ -59,13 +59,16 @@
 	>
 {/snippet}
 
-<section>
-	<h1>
+<section class="grid place-content-center justify-items-center gap-4">
+	<h1 class="text-heading-md text-primary-500 dark:text-primary-400 mb-6 font-bold">
 		{page.status}
 	</h1>
 	{@render notFoundIcon()}
-	<p>
+	<p class="text-heading-base">
 		{page.error?.message}
 	</p>
-	<a href="/">Go back to home page</a>
+	<a
+		class="bg-primary-500 hover:bg-primary-400 inline-block rounded-sm p-3 text-white transition-colors text-shadow-black text-shadow-sm"
+		href="/">Go back to home page</a
+	>
 </section>
