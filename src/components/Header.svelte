@@ -3,10 +3,10 @@
 </script>
 
 <header class="flex items-center">
-	<a href="/" class="relative left-4 mx-auto">
+	<a aria-label="Pokedex - home page" href="/" class="relative left-4 mx-auto">
 		<img
 			src="/pokemon-logo.webp"
-			alt="Pokedex version 5.0"
+			alt=""
 			height="63"
 			width="150"
 			fetchpriority="high"

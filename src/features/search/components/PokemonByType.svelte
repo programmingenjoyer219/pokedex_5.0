@@ -20,9 +20,8 @@
 	</button>
 {/snippet}
 
-<p id="search-by-type-label" class="sr-only">Search pokémon by type</p>
 <ul
-	aria-labelledby="search-by-type-label"
+	aria-label="Search pokémon by type"
 	class="border-primary-400 flex items-center gap-4 overflow-x-scroll rounded-sm border-2 p-3 sm:p-4"
 >
 	<li>

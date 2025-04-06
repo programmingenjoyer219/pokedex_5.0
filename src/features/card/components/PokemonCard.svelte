@@ -23,7 +23,7 @@
 		<img
 			loading="lazy"
 			src="/images/{id}.webp"
-			alt={english_name}
+			alt=""
 			height="80"
 			width="80"
 			style:view-transition-name={english_name}
