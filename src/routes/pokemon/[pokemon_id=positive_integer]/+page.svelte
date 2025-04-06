@@ -27,37 +27,56 @@
 	<meta name="description" content={description} />
 </svelte:head>
 
-<img
-	loading="lazy"
-	src="/images/{id}.webp"
-	alt="{english_name}. {description}"
-	height="280"
-	width="280"
-	style:view-transition-name={english_name}
-/>
+<main class="flow">
+	<h1
+		class="text-heading-base sm:text-heading-md text-primary-500 dark:text-primary-400 text-center font-bold"
+	>
+		{english_name}
+	</h1>
 
-<section>
-	<div>
-		<p>Species: <span>{species}</span></p>
-		<p>Height: <span>{height}</span></p>
-		<p>Weight: <span>{weight}</span></p>
-		<p>
-			Gender Ratio: <span>{gender_ratio}</span>
-		</p>
-		<p>
-			Abilities: <span>{commaSeperatedAbilities}</span>
-		</p>
+	<div class="grid gap-4 sm:grid-cols-2">
+		<img
+			loading="lazy"
+			src="/images/{id}.webp"
+			alt={english_name}
+			height="280"
+			width="280"
+			style:view-transition-name={english_name}
+			class="mx-auto"
+		/>
+		<section class="flow">
+			<div>
+				<p>
+					Species: <span class="text-primary-500 dark:text-primary-400 font-bold">{species}</span>
+				</p>
+				<p>
+					Height: <span class="text-primary-500 dark:text-primary-400 font-bold">{height}</span>
+				</p>
+				<p>
+					Weight: <span class="text-primary-500 dark:text-primary-400 font-bold">{weight}</span>
+				</p>
+				<p>
+					Gender Ratio: <span class="text-primary-500 dark:text-primary-400 font-bold"
+						>{gender_ratio}</span
+					>
+				</p>
+				<p>
+					Abilities: <span class="text-primary-500 dark:text-primary-400 font-bold"
+						>{commaSeperatedAbilities}</span
+					>
+				</p>
+			</div>
+
+			<ul aria-label="{english_name} belongs to the type:" class="flex items-center gap-2">
+				{#each pokemon_types as pokemon_type, index (index)}
+					<li>
+						<PokemonTypeSlot pokemonType={pokemon_type} />
+					</li>
+				{/each}
+			</ul>
+
+			<p>{description}</p>
+		</section>
+		<StatChart pokemonName={english_name} {stats} />
 	</div>
-
-	<ul aria-label="{english_name} belongs to the type:">
-		{#each pokemon_types as pokemon_type, index (index)}
-			<li>
-				<PokemonTypeSlot pokemonType={pokemon_type} />
-			</li>
-		{/each}
-	</ul>
-
-	<p>{description}</p>
-</section>
-
-<StatChart pokemonName={english_name} {stats} />
+</main>
