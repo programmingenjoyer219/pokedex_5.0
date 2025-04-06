@@ -59,7 +59,7 @@
 /* colors */
 @theme {
 	--color-*: initial;
-	--color-white: hsl(0, 0%, 90%);
+	--color-white: hsl(0, 0%, 100%);
 	--color-black: hsl(0, 0%, 13%);
 	--color-gray: hsl(0, 0%, 75%);
 	--color-primary-400: hsl(221, 83%, 63%);
@@ -90,11 +90,11 @@
 	}
 
 	::-webkit-scrollbar-track {
-		background: var(--color-primary-400);
+		background: var(--color-primary-500);
 	}
 
 	::-webkit-scrollbar-thumb {
-		background: var(--color-primary-500);
+		background: var(--color-primary-400);
 		min-height: 100px;
 	}
 
@@ -110,6 +110,158 @@
 
 	.inline-wrapper {
 		@apply mx-auto max-w-[1000px] p-4 sm:p-6;
+	}
+
+	[data-bg-color='primary-500'] {
+		background-color: var(--color-primary-500);
+	}
+
+	[data-bg-color='bug'] {
+		background-color: var(--color-bug);
+	}
+
+	[data-bg-color='dark'] {
+		background-color: var(--color-dark);
+	}
+
+	[data-bg-color='dragon'] {
+		background-color: var(--color-dragon);
+	}
+
+	[data-bg-color='electric'] {
+		background-color: var(--color-electric);
+	}
+
+	[data-bg-color='fairy'] {
+		background-color: var(--color-fairy);
+	}
+
+	[data-bg-color='fighting'] {
+		background-color: var(--color-fighting);
+	}
+
+	[data-bg-color='fire'] {
+		background-color: var(--color-fire);
+	}
+
+	[data-bg-color='flying'] {
+		background-color: var(--color-flying);
+	}
+
+	[data-bg-color='ghost'] {
+		background-color: var(--color-ghost);
+	}
+
+	[data-bg-color='grass'] {
+		background-color: var(--color-grass);
+	}
+
+	[data-bg-color='ground'] {
+		background-color: var(--color-ground);
+	}
+
+	[data-bg-color='ice'] {
+		background-color: var(--color-ice);
+	}
+
+	[data-bg-color='normal'] {
+		background-color: var(--color-normal);
+	}
+
+	[data-bg-color='poison'] {
+		background-color: var(--color-poison);
+	}
+
+	[data-bg-color='psychic'] {
+		background-color: var(--color-psychic);
+	}
+
+	[data-bg-color='rock'] {
+		background-color: var(--color-rock);
+	}
+
+	[data-bg-color='steel'] {
+		background-color: var(--color-steel);
+	}
+
+	[data-bg-color='water'] {
+		background-color: var(--color-water);
+	}
+
+	[data-border-color='primary-500'] {
+		border-color: var(--color-primary-500);
+	}
+
+	[data-border-color='bug'] {
+		border-color: var(--color-bug);
+	}
+
+	[data-border-color='dark'] {
+		border-color: var(--color-dark);
+	}
+
+	[data-border-color='dragon'] {
+		border-color: var(--color-dragon);
+	}
+
+	[data-border-color='electric'] {
+		border-color: var(--color-electric);
+	}
+
+	[data-border-color='fairy'] {
+		border-color: var(--color-fairy);
+	}
+
+	[data-border-color='fighting'] {
+		border-color: var(--color-fighting);
+	}
+
+	[data-border-color='fire'] {
+		border-color: var(--color-fire);
+	}
+
+	[data-border-color='flying'] {
+		border-color: var(--color-flying);
+	}
+
+	[data-border-color='ghost'] {
+		border-color: var(--color-ghost);
+	}
+
+	[data-border-color='grass'] {
+		border-color: var(--color-grass);
+	}
+
+	[data-border-color='ground'] {
+		border-color: var(--color-ground);
+	}
+
+	[data-border-color='ice'] {
+		border-color: var(--color-ice);
+	}
+
+	[data-border-color='normal'] {
+		border-color: var(--color-normal);
+	}
+
+	[data-border-color='poison'] {
+		border-color: var(--color-poison);
+	}
+
+	[data-border-color='psychic'] {
+		border-color: var(--color-psychic);
+	}
+
+	[data-border-color='rock'] {
+		border-color: var(--color-rock);
+	}
+
+	[data-border-color='steel'] {
+		border-color: var(--color-steel);
+	}
+
+	[data-border-color='water'] {
+		border-color: var(--color-water);
 	}
 }
 
