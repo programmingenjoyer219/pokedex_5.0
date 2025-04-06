@@ -99,7 +99,7 @@
 	}
 
 	button {
-		@apply cursor-pointer disabled:cursor-not-allowed disabled:opacity-50;
+		@apply cursor-pointer transition-colors disabled:cursor-not-allowed disabled:opacity-50;
 	}
 }
 

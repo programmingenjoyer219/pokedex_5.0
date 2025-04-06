@@ -60,7 +60,7 @@
 		}
 	}}
 	title="toggle theme"
-	class="bg-primary-500 rounded-full p-2"
+	class="bg-primary-500 hover:bg-primary-400 rounded-full p-2"
 >
 	<span class="sr-only">Switch to {theme} mode</span>
 	{#if theme == 'light'}

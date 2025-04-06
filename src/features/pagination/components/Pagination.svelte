@@ -44,7 +44,7 @@
 		onclick={gotoPreviousPage}
 		title="previous page"
 		disabled={currentPageNumber == 1}
-		class="bg-primary-500 rounded-sm p-2 text-white sm:p-3"
+		class="bg-primary-500 hover:bg-primary-400 rounded-sm p-2 text-white sm:p-3"
 	>
 		<span class="sr-only">Go to previous page</span>
 		{@render leftArrowIcon()}
@@ -56,7 +56,7 @@
 		onclick={gotoNextPage}
 		title="next page"
 		disabled={currentPageNumber == numberOfPages}
-		class="bg-primary-500 rounded-sm p-2 text-white sm:p-3"
+		class="bg-primary-500 hover:bg-primary-400 rounded-sm p-2 text-white sm:p-3"
 	>
 		<span class="sr-only">Go to next page</span>
 		{@render rightArrowIcon()}
