@@ -18,9 +18,7 @@
 
 <svelte:head>
 	<link crossorigin rel="preload" as="font" href="/fonts/SpaceMono-Regular.woff" />
-	<link crossorigin rel="preload" as="font" href="/fonts/SpaceMono-Italic.woff" />
 	<link crossorigin rel="preload" as="font" href="/fonts/SpaceMono-Bold.woff" />
-	<link crossorigin rel="preload" as="font" href="/fonts/SpaceMono-BoldItalic.woff" />
 
 	<title>Pokédex | Find your favorite Pokémon</title>
 
