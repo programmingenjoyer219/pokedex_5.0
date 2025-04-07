@@ -1,10 +1,10 @@
 <script>
 	import { debounce } from '$lib/helpers';
 
-	var { searchQuery = $bindable('') } = $props();
+	var { searchByName = $bindable('') } = $props();
 
 	var updateSearchQuery = debounce(200)(function updateSearchQuery(e) {
-		searchQuery = e.target.value;
+		searchByName = e.target.value;
 	});
 </script>
 
@@ -17,7 +17,6 @@
 		aria-label="Search"
 		autocomplete="off"
 		oninput={updateSearchQuery}
-		autofocus
 		class="border-gray focus:border-primary-500 placeholder:text-primary-500 dark:placeholder:text-primary-400 flex-1 rounded-sm border-2 p-3 text-sm font-bold sm:p-4 sm:text-base"
 	/>
 </form>
