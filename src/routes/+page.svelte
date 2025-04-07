@@ -16,7 +16,7 @@
 {#snippet searchSection()}
 	<section class="flow">
 		<SearchBar bind:searchQuery={searchPokemon.searchByName} />
-		<PokemonByType bind:pokemonTypeValue={searchPokemon.searchByType} />
+		<PokemonByType bind:searchByType={searchPokemon.searchByType} />
 	</section>
 {/snippet}
 

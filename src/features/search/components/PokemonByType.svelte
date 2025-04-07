@@ -1,18 +1,18 @@
 <script>
-	import { POKEMON_TYPES } from '$lib/pokemonTypes';
+	import POKEMON_TYPES from '$lib/pokemonTypes.json';
 	import { applyViewTransition, capitalize } from '$lib/helpers';
 
-	var { pokemonTypeValue = $bindable(null) } = $props();
+	var { searchByType = $bindable(null) } = $props();
 </script>
 
-{#snippet pokemonByTypeBtn(pokemonType)}
+{#snippet searchPokemonByTypeBtn(pokemonType)}
 	{@const title = pokemonType ? pokemonType : 'All'}
 	{@const src = pokemonType ? `/pokemon-types/${pokemonType}.svg` : '/favicon.png'}
 	<button
 		data-bg-color={pokemonType ? pokemonType : 'primary-500'}
 		{title}
 		onclick={applyViewTransition(function updatePokemonTypeValue() {
-			pokemonTypeValue = pokemonType === null ? null : capitalize(pokemonType);
+			searchByType = pokemonType === null ? null : capitalize(pokemonType);
 		})}
 		class="flex size-[3rem] flex-0 items-center justify-center rounded-sm p-0.5 transition-transform hover:scale-110 sm:size-[3.5rem] sm:p-1"
 	>
@@ -25,11 +25,11 @@
 	class="border-primary-400 flex items-center gap-4 overflow-x-scroll rounded-sm border-2 p-3 sm:p-4"
 >
 	<li>
-		{@render pokemonByTypeBtn(null)}
+		{@render searchPokemonByTypeBtn(null)}
 	</li>
 	{#each POKEMON_TYPES as pokemonType (pokemonType)}
 		<li>
-			{@render pokemonByTypeBtn(pokemonType)}
+			{@render searchPokemonByTypeBtn(pokemonType)}
 		</li>
 	{/each}
 </ul>
