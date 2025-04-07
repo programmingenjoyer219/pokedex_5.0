@@ -1,16 +1,15 @@
 <script>
 	import PokemonCard from '$features/card/components/PokemonCard.svelte';
 	import Pagination from '$features/pagination/components/Pagination.svelte';
+	import { pagination } from '$features/pagination/states/index.svelte';
 	import PokemonByType from '$features/search/components/PokemonByType.svelte';
 	import SearchBar from '$features/search/components/SearchBar.svelte';
 	import { searchPokemon } from '$features/search/states/index.svelte';
 
-	var currentPageIndex = $state(0);
-
 	$effect(function resetCurrentPageIndex() {
 		searchPokemon.searchByName;
 		searchPokemon.searchByType;
-		currentPageIndex = 0;
+		pagination.currentPageIndex = 0;
 	});
 </script>
 
@@ -25,7 +24,7 @@
 	<div
 		class="grid grid-cols-[repeat(auto-fit,_minmax(8rem,_8.01rem))] place-content-center gap-4 sm:grid-cols-[repeat(auto-fit,_minmax(280px,281px))]"
 	>
-		{#each searchPokemon.paginatedData[currentPageIndex] as pokemon (pokemon.id)}
+		{#each searchPokemon.paginatedData[pagination.currentPageIndex] as pokemon (pokemon.id)}
 			<PokemonCard {pokemon} />
 		{/each}
 	</div>
@@ -36,9 +35,15 @@
 	<main class="flow">
 		{#if searchPokemon.paginatedData[0].length > 0}
 			<section class="flow">
-				<Pagination numberOfPages={searchPokemon.numberOfPages} bind:currentPageIndex />
+				<Pagination
+					numberOfPages={searchPokemon.numberOfPages}
+					bind:currentPageIndex={pagination.currentPageIndex}
+				/>
 				{@render pokemonCardsGrid()}
-				<Pagination numberOfPages={searchPokemon.numberOfPages} bind:currentPageIndex />
+				<Pagination
+					numberOfPages={searchPokemon.numberOfPages}
+					bind:currentPageIndex={pagination.currentPageIndex}
+				/>
 			</section>
 		{:else}
 			<h3 class="text-heading-base text-primary-400 text-center font-bold">No results...</h3>
