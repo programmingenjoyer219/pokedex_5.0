@@ -17,9 +17,6 @@
 </script>
 
 <svelte:head>
-	<link crossorigin rel="preload" as="font" href="/fonts/SpaceMono-Regular.woff" />
-	<link crossorigin rel="preload" as="font" href="/fonts/SpaceMono-Bold.woff" />
-
 	<title>Pokédex | Find your favorite Pokémon</title>
 
 	<meta
