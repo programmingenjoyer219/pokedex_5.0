@@ -23,6 +23,8 @@
 		name="description"
 		content="Explore a complete Pokédex with detailed Pokémon stats and abilities. Find your favorite Pokémon and become a true Pokémon Master!"
 	/>
+
+	<link rel="manifest" href="/app.webmanifest" />
 </svelte:head>
 
 <div class="inline-wrapper flow">

@@ -1,0 +1,86 @@
+
+{
+    "id": "/",
+    "start_url": "/",
+    "scope": "/",
+    "name": "Pokédex | Find your favorite Pokémon",
+    "short_name": "Pokédex",
+    "display": "standalone",
+    "background_color": "#2463eb",
+    "theme_color": "#2463eb",
+    "description": "An interactive database of Pokémons",
+    "icons": [
+        {
+          "src": "/icons/icon-192.png",
+          "type": "image/png",
+          "sizes": "192x192",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/icon-512.png",
+          "type": "image/png",
+          "sizes": "512x512",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/icon-192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "/icons/icon-512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ],
+      "screenshots": [
+        {
+         "src": "/screenshots/desktop-1.png",
+          "sizes": "1500x1200",
+          "type": "image/png",
+          "form_factor": "wide"
+        },
+        {
+            "src": "/screenshots/desktop-2.png",
+             "sizes": "1500x1200",
+             "type": "image/png",
+             "form_factor": "wide"
+        },
+        {
+            "src": "/screenshots/desktop-3.png",
+             "sizes": "1500x1200",
+             "type": "image/png",
+             "form_factor": "wide"
+        },
+        {
+            "src": "/screenshots/desktop-4.png",
+             "sizes": "1500x1200",
+             "type": "image/png",
+             "form_factor": "wide"
+        },
+        {
+            "src": "/screenshots/mobile-1.png",
+             "sizes": "750x1200",
+             "type": "image/png",
+             "form_factor": "narrow"
+        },
+        {
+            "src": "/screenshots/mobile-2.png",
+             "sizes": "750x1200",
+             "type": "image/png",
+             "form_factor": "narrow"
+        },
+        {
+            "src": "/screenshots/mobile-3.png",
+             "sizes": "750x1200",
+             "type": "image/png",
+             "form_factor": "narrow"
+        },
+        {
+            "src": "/screenshots/mobile-4.png",
+             "sizes": "750x1200",
+             "type": "image/png",
+             "form_factor": "narrow"
+        }
+    ]
+}
